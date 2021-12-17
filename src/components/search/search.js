@@ -1,27 +1,28 @@
-import React from 'react'
-import reactStars from 'react-rating-stars-component'
+import React, { useState } from 'react';
+import ReactStars from 'react-rating-stars-component';
 
-const search = ({handleSearchtit,searchByRate})=>{
-{ const [search,setSearch] = useState("");
+const Search = ({handleSearchTit,searchByRating})=>{
+const [search,setSearch] = useState(" ");
     const handleSumbit=(e) => {
         e.preventDefault();
-        handleSearchtit(search);
+        handleSearchTit(search);
     };
     const ratingChanged = (newRating) =>{
-        searchByRate(newRating);
+        searchByRating(newRating);
     };
    return(
        <div>
-           <form onSubmit={handleSumbit}/>
+           <form onSubmit={handleSumbit}>
            <input type="text"
            placeholder='search'
            onChange={(e)=> setSearch(e.target.value)} />
-          
-           <reactStars
+           <ReactStars
            size="500px"
            count="10"
            onChange={ratingChanged}
 />
+</form>
 </div>
-   );
-   }}
+);
+};
+export default Search

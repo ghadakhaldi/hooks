@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MovieList from './components/movieList/MovieList';
 import Add from './components/add/add';
-import search from './components/search/search';
+import Search from './components/search/search'; 
+import {BrowserRouter} from 'react-router-dom';
+
 function App() {
   const movies=[
     {title:"house of gucci",description:"When Patrizia Reggiani Lady Gaga an outsider from humble beginnings marries into the Gucci family her unbridled ambition begins to unravel the family legacy and triggers a reckless spiral of betrayal decadence revenge and ultimately murder A legacy worth killing for."
@@ -20,20 +22,25 @@ const[newList,setNewList]=useState(movies)
 const handleAdd=(movies)=>{
   setNewList([...newList,{...movies,id:newList.length+2}])
 
-}
+} 
 const [searchTitle,setSearchTitle ] = useState("")
 const [searchRating,setSearchRating]=useState(0)
 const handleSearchTit=(title)=>{
   setSearchTitle(title)
 }
 const searchByRating=(rate)=>{
-  setSearchByRate(rate)
+  setSearchRating(rate)
 }
  
   return (
-    <div className="App">
-<Search handleSearchtit={handleSearchtit} searchByRate={SearchByRate}/>
-<MovieList movies={newList.filter(el=>el.title.toLocaleLowerCase().includes(searchTitle.toLocaleLowerCase))}/>
+    <div className="App"> 
+    <h1>movie app</h1>
+   {/* <switch>
+      <Route path="/">MovieList movies={newList} </Route>
+      <Route add="/add">Add handleAdd={handleAdd}</Route>
+   </switch>*/}
+<Search handleSearchTit={handleSearchTit} searchByRating={searchByRating}/>
+<MovieList movies={newList.filter(el=>el.title.toLocaleLowerCase().includes(searchTitle.toLocaleLowerCase().trim()) &&el.rating>=searchRating)}/>
          <Add handleAdd={handleAdd}/>
  
     </div>

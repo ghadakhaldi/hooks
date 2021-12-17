@@ -5,17 +5,18 @@ import ReactStars from "react-rating-stars-component";
 function MovieCard({ el }) {
   return (
     <div>
+
       <div>
         <div className="wrapper">
           <div className="card">
             <img src={el.posterURL} />
             <div className="descriptions">
-              <h1>{el.title}</h1>
-              <p>{el.description}</p>
+              <h1 style={{fontSize:"30px"}}>{el.title}</h1>
+              <p style={{fontSize:"15px"}}>{el.description}</p>
               <ReactStars
                 count={10}
                 value={el.rating}
-                size={24}
+                size={20}
                 edit={false}
                 activeColor="#ffd700"
               />
@@ -28,7 +29,7 @@ function MovieCard({ el }) {
         </div>
         <footer>
           <p>
-            Created with <i className="fa fa-heart" /> by
+            Created <i className="fa fa-heart" /> by
             <a target="_blank" href="https://codepen.io/ahmadbassamemran/">
               khaldi Ghada
             </a>
