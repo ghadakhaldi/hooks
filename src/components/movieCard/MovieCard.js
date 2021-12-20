@@ -1,6 +1,7 @@
 import React from "react";
 import "./movieCard.css";
 import ReactStars from "react-rating-stars-component";
+import { Link } from 'react-router-dom';
 
 function MovieCard({ el }) {
   return (
@@ -20,10 +21,9 @@ function MovieCard({ el }) {
                 edit={false}
                 activeColor="#ffd700"
               />
-              <button>
-                <i className="fab fa-youtube" />
-                Play trailer on YouTube
-              </button>
+                <Link to={`/movieDetails/${el.id}`} ><button>
+              <i className="fas fa-play" /> SEE TRAILER
+              </button></Link> 
             </div>
           </div>
         </div>

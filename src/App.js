@@ -5,7 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MovieList from './components/movieList/MovieList';
 import Add from './components/add/add';
 import Search from './components/search/search'; 
-import {BrowserRouter} from 'react-router-dom';
+import MovieDetails from "./components/MovieDetails/MovieDetails";
+import { Route, Routes } from 'react-dom';
+
 
 function App() {
   const movies=[
@@ -35,10 +37,11 @@ const searchByRating=(rate)=>{
   return (
     <div className="App"> 
     <h1>movie app</h1>
-   {/* <switch>
-      <Route path="/">MovieList movies={newList} </Route>
-      <Route add="/add">Add handleAdd={handleAdd}</Route>
-   </switch>*/}
+    <Routes> 
+        <Route path="/" element={<MovieList movies={newList} />}/> 
+        <Route path="/add" element={<Add />}/>
+        <Route path="/movieDetails/:id" element={<MovieDetails movies={newList}/>}/>
+      </Routes>
 <Search handleSearchTit={handleSearchTit} searchByRating={searchByRating}/>
 <MovieList movies={newList.filter(el=>el.title.toLocaleLowerCase().includes(searchTitle.toLocaleLowerCase().trim()) &&el.rating>=searchRating)}/>
          <Add handleAdd={handleAdd}/>
