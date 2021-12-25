@@ -1,8 +1,9 @@
 .App {
   text-align: center;
+  color: black;
 }
 .body{
-  background: #282c34;
+  background-color: blue;
 }
 .App-logo {
   height: 40vmin;
@@ -39,3 +40,4 @@
     transform: rotate(360deg);
   }
 }
+

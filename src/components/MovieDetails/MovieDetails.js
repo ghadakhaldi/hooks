@@ -3,11 +3,12 @@ import { useParams } from 'react-router-dom'
 
 const MovieDetails = ({movies}) => {
 
-    const {id}=useParams()
-    console.log(movies.find(el=>el.id==id))
+    const {title}=useParams()
+    const movie=movies.find(el=>el.title==title)
     return (
         <div>
-            {id}
+        <h1> {movie.title}</h1>
+        <iframe src={movie.trailer}> </iframe>
         </div>
     )
 }

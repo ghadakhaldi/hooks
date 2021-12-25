@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 function MovieCard({ el }) {
   return (
     <div>
-
       <div>
         <div className="wrapper">
           <div className="card">
@@ -21,7 +20,7 @@ function MovieCard({ el }) {
                 edit={false}
                 activeColor="#ffd700"
               />
-                <Link to={`/movieDetails/${el.id}`} ><button>
+                <Link to={`/movieDetails/${el.title}`} ><button>
               <i className="fas fa-play" /> SEE TRAILER
               </button></Link> 
             </div>
